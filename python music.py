@@ -20,12 +20,12 @@ notes = {
 tempered_notes = {}
 
 for note in notes:
-    freq = scale * ratio ** notes.get(note)
-    tempered_notes[note] = int(freq)
+	freq = scale * ratio ** notes.get(note)
+	tempered_notes[note] = int(freq)
 
 def play_note(note, duration=500):
 	"""Plays the notes for a certain duration"""
-    winsound.Beep(tempered_notes.get(note), duration)
+	winsound.Beep(tempered_notes.get(note), duration)
 
 def frequency(note):
 	"""Finds the frequency of a note"""
