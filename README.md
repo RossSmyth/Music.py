@@ -5,7 +5,7 @@ Doesn't do too much now
 Not sure if it ever will
 
 # Current Features
-* Play any note from A0 to the frequency limit of Python. Not which note that is though
+* Play any note from A0 to B8 (B8 is limit of Python, not me)
 
 # Planned Features
 * Bring frequency range down to the lower limit
