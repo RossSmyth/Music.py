@@ -51,5 +51,15 @@ def play_note(note, duration=500):
     winsound.Beep(tempered_notes.get(note), duration)
 
 song = input("Notes in order:")
-for note in song.split():
-    play_note(note)
+
+note_list = song.split()
+
+note_final_list = {}
+i = 0
+for note in note_list:
+	if len(note) > 2:
+		note_final_list[i] = [note[:2], int(note[2:])]
+	else:
+		note_final_list[i] = [note[:1], int(note[1:])
+	i += 1
+	
