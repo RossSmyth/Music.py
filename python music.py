@@ -34,7 +34,7 @@ def frequency(note):
 	
 	step = 12 * pitch_level + notes[name]
 	
-	return 110 * 2 ** (step / 12)
+	return round(110 * 2 ** (step / 12))
 	
 def play_note_list(note_list):
 	"""Plays the list of notes"""
@@ -50,9 +50,9 @@ note_final_list = []
 i = 0
 for note in note_list:
 	if len(note) > 2:
-		note_final_list.insert(i, [note[:2], int(note[2:])])
+		note_final_list.insert(i, [note[:2].upper(), int(note[2:])])
 	else:
-		note_final_list.insert(i, [note[:1], int(note[1:])])
+		note_final_list.insert(i, [note[:1].upper(), int(note[1:])])
 	i += 1
 
 play_note_list(note_final_list)
