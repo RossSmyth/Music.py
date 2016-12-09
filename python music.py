@@ -25,7 +25,7 @@ for note in notes:
 
 def play_note(note, duration=500):
 	"""Plays the notes for a certain duration"""
-	winsound.Beep(tempered_notes.get(note), duration)
+	winsound.Beep(note, duration)
 
 def frequency(note):
 	"""Finds the frequency of a note"""
@@ -55,3 +55,4 @@ for note in note_list:
 		note_final_list.insert(i, [note[:1], int(note[1:])])
 	i += 1
 
+play_note_list(note_final_list)
