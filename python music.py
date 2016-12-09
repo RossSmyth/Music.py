@@ -50,8 +50,8 @@ note_final_list = []
 i = 0
 for note in note_list:
 	if len(note) > 2:
-		note_final_list[i] = [note[:2], int(note[2:])]
+		note_final_list.insert(i, [note[:2], int(note[2:])])
 	else:
-		note_final_list[i] = [note[:1], int(note[1:])]
+		note_final_list.insert(i, [note[:1], int(note[1:])])
 	i += 1
 
