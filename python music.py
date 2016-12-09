@@ -2,43 +2,19 @@ import winsound
 
 scale = 440
 ratio = 1.05946
-notes = {'A2': -11,
-		 'A#2': -10,
-		 'C2': -9,
-         'C#2': -8,
-         'D2': -7,
-         'D#2': -6,
-         'E2': -5,
-         'F2': -4,
-         'F#2':-2,
-         'G2': -2,
-         'G#2': -1,
-		 'A3': -11,
-		 'A#3': -10,
-		 'C3': -9,
-         'C#3': -8,
-         'D3': -7,
-         'D#3': -6,
-         'E3': -5,
-         'F3': -4,
-         'F#3':-2,
-         'G3': -2,
-         'G#3': -1,
-         'A4': 0,
-         'A#4': 1,
-         'B4': 2,
-		 'C4': 3,
-		 'C#4': 4,
-		 'D4': 5,
-		 'D#4': 6,
-		 'E4': 7,
-		 'F4': 8,
-		 'F#4': 9,
-		 'G4': 10,
-		 'G#4': 11,
-		 'A5:': 12,
-		 'A#5': 13,
-		 'B5': 14
+notes = {
+		 'A': 0,
+         'A#': 1,
+         'B': 2,
+		 'C': 3,
+		 'C#': 4,
+		 'D': 5,
+		 'D#': 6,
+		 'E': 7,
+		 'F': 8,
+		 'F#': 9,
+		 'G': 10,
+		 'G#': 11,
 		 }
 
 tempered_notes = {}
@@ -48,13 +24,29 @@ for note in notes:
     tempered_notes[note] = int(freq)
 
 def play_note(note, duration=500):
+	"""Plays the notes for a certain duration"""
     winsound.Beep(tempered_notes.get(note), duration)
+
+def frequency(note):
+	"""Finds the frequency of a note"""
+	pitch_level = note[1]
+	name = note[0]
+	
+	step = 12 * pitch_level + notes[name]
+	
+	return 110 * 2 ** (step / 12)
+	
+def play_note_list(note_list):
+	"""Plays the list of notes"""
+	for note in note_list:
+		freq = frequency(note)
+		play_note(freq)
 
 song = input("Notes in order:")
 
 note_list = song.split()
 
-note_final_list = {}
+note_final_list = []
 i = 0
 for note in note_list:
 	if len(note) > 2:
@@ -62,4 +54,4 @@ for note in note_list:
 	else:
 		note_final_list[i] = [note[:1], int(note[1:])]
 	i += 1
-	
+
